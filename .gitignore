@@ -58,12 +58,3 @@ typings/
 .env
 
 *.DS_Store*
-build
-dist
-.env
-deploy.env
-event.json
-!test/event.json
-context.json
-.lambda
-ffmpeg

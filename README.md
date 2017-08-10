@@ -20,10 +20,10 @@ The following methods are available:
 |Function|Description|Params|Return|
 |---|---|---|---|
 |`State.init`|Initializes a new singleton state. This should be called at the beginning of your lambda handler.|n/a|`Promise`|
-|`State.debug`|Add a `debug` level log line to the state.|`message: string, aux: object`|`(...args) => Promise`|
-|`State.info`|Add an `info` level log line to the state.|`message: string, aux: object`|`(...args) => Promise`|
-|`State.warn`|Add a `warn` level log line to the state.|`message: string, aux: object`|`(...args) => Promise`|
-|`State.error`|Add an `error` level log line to the state.|`message: string, aux: object`|`(...args) => Promise`|
+|`State.debug`|Add a `debug` level log line to the state.|<ul><li>`message`: string</li><li>`aux`: object</li></ul>|`(...args) => Promise`|
+|`State.info`|Add an `info` level log line to the state.|<ul><li>`message`: string</li><li>`aux`: object</li></ul>|`(...args) => Promise`|
+|`State.warn`|Add a `warn` level log line to the state.|<ul><li>`message`: string</li><li>`aux`: object</li></ul>|`(...args) => Promise`|
+|`State.error`|Add an `error` level log line to the state.|<ul><li>`message`: string</li><li>`aux`: object</li></ul>|`(...args) => Promise`|
 |`State.finalize`|Print a log line given the current state and call the lambda callback based on the level of the state.|The lambda callback|void|
 
 ## Use with promises

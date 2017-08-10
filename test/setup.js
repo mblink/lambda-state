@@ -1,5 +1,5 @@
-import chai from 'chai';
-import sinon from 'sinon';
+const chai = require('chai');
+const sinon = require('sinon');
 
 global.expect = chai.expect;
 chai.use(require('dirty-chai'));
@@ -18,4 +18,4 @@ afterEach(() => {
   testFns.forEach(fn => delete utils[fn]);
 });
 
-export default utils;
+module.exports = utils;

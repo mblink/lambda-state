@@ -1,5 +1,5 @@
-import utils from './setup';
-import State from '../src/index';
+const utils = require('./setup');
+const State = require('../src/index');
 
 const logLevels = ['debug', 'info', 'warn', 'error'];
 const logFns = { debug: 'trace', info: 'log', warn: 'warn', error: 'error' };

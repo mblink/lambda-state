@@ -34,7 +34,7 @@ class InternalState {
   }
 }
 
-export default class State {
+class State {
   static ensureInit() {
     if (typeof singleton === 'undefined') { State.init(); }
   }
@@ -69,3 +69,5 @@ export default class State {
     return level.name === 'error' ? callback(state) : callback(null, state);
   }
 }
+
+module.exports = State;

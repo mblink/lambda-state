@@ -24,8 +24,6 @@ describe('State', () => {
 
   describe('::finalize', () => {
     describe('logging', () => {
-      beforeEach(() => { if (process.env.ALLOW_CONSOLE !== 'true') { console.log.restore(); } });
-
       it('logs with `console.log` when the trace is empty', () => {
         utils.stub(console, 'log');
         State.finalize(() => {});
@@ -58,7 +56,6 @@ describe('State', () => {
         it(`calls back with success when the level is <= ${level}`, () => {
           const callback = utils.stub();
           const levels = logLevels.slice(0, i + 1);
-          if (process.env.ALLOW_CONSOLE !== 'true') { console.log.restore(); }
           levels.forEach(l => utils.stub(console, logFns[l]));
           return Promise.all(levels.map(l => State[l](l, {})())).then(() => {
             State.finalize(callback);

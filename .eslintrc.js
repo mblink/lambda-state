@@ -4,8 +4,7 @@ module.exports = {
   rules: {
     'comma-dangle': ['error', 'never'],
     'max-len': ['error', 117, 2],
-    'no-confusing-arrow': ['error', { allowParens: true }],
-    'no-console': 'off',
+    'no-confusing-arrow': ['error', { allowParens: true }]
   },
   globals: { expect: true }
 };

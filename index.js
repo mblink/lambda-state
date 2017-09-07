@@ -1,3 +1,5 @@
+const Console = require('./console');
+
 const logLevels = {
   debug: { n: 0, name: 'debug', logFn: 'trace' },
   info: { n: 1, name: 'info', logFn: 'log' },
@@ -10,9 +12,9 @@ const timestamp = () => new Date().toISOString();
 let singleton;
 
 class InternalState {
-  constructor(state, callback) {
+  constructor(state, options) {
     this.state = state;
-    this.callback = callback;
+    this.options = options || {};
   }
 
   appendTrace(trace) {
@@ -39,8 +41,8 @@ class State {
     if (typeof singleton === 'undefined') { State.init(); }
   }
 
-  static init() {
-    singleton = new InternalState({ time: timestamp(), trace: [] });
+  static init(options) {
+    singleton = new InternalState({ time: timestamp(), trace: [] }, options);
     return Promise.resolve(singleton);
   }
 
@@ -65,7 +67,7 @@ class State {
   static finalize(callback) {
     State.ensureInit();
     const [level, state] = singleton.finalize();
-    console[level.logFn](JSON.stringify(state));
+    Console[level.logFn](singleton.options.pretty ? JSON.stringify(state, null, 2) : JSON.stringify(state));
     return level.name === 'error' ? callback(state) : callback(null, state);
   }
 }

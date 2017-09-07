@@ -4,7 +4,7 @@ This is a state management and JSON logging library for AWS lambda. It provides 
 object for the lifecycle of your lambda function. To install it:
 
 ```bash
-npm install --save github:mblink/lambda-state#0.0.1
+npm install --save github:mblink/lambda-state#0.0.2
 ```
 
 To use it:
